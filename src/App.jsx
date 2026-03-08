@@ -5,6 +5,7 @@ import Pipeline from './pages/Pipeline'
 import Leads from './pages/Leads'
 import Agents from './pages/Agents'
 import Skills from './pages/Skills'
+import Invoices from './pages/Invoices'
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/leads" element={<Leads />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/skills" element={<Skills />} />
+        <Route path="/invoices" element={<Invoices />} />
       </Route>
     </Routes>
   )

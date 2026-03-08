@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
-import { DollarSign, TrendingUp, Target, Users, CheckCircle, XCircle, ArrowRight } from 'lucide-react'
+import { DollarSign, TrendingUp, Target, Users, CheckCircle, XCircle, ArrowRight, Receipt } from 'lucide-react'
 import deals from '../data/live/deals.js'
 import agents from '../data/live/agents.js'
 import probate from '../data/live/probate.js'
 import foreclosures from '../data/live/foreclosures.js'
 import cashBuyers from '../data/live/cashBuyers.js'
 import botStatus from '../data/live/botStatus.js'
+import invoices from '../data/live/invoices.js'
 import StatCard from '../components/StatCard'
 import StatusBadge from '../components/StatusBadge'
 import QuickActions from '../components/QuickActions'
+import RecentActivity from '../components/RecentActivity'
 
 function fmt(n) {
   if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M'
@@ -25,6 +27,8 @@ export default function Dashboard() {
   const totalSpread = deals.reduce((s, d) => s + num(d.Spread), 0)
   const sent = agents.filter((a) => a.Status === 'SENT').length
   const replied = agents.filter((a) => a.Status === 'REPLIED').length
+  const totalRevenue = invoices.filter((i) => (i.status || '').toUpperCase() === 'PAID').reduce((s, inv) => s + num(inv.amount || 0), 0)
+  const totalPending = invoices.filter((i) => (i.status || '').toUpperCase() === 'PENDING').reduce((s, inv) => s + num(inv.amount || 0), 0)
 
   const hour = new Date().getHours()
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening'
@@ -57,9 +61,11 @@ export default function Dashboard() {
         <StatCard icon={TrendingUp} label="Total Spread" value={fmt(totalSpread)} accent />
         <StatCard icon={Target} label="Active Deals" value={deals.length} />
         <StatCard icon={Users} label="Agents Contacted" value={sent + replied} />
+        <StatCard icon={Receipt} label="Revenue" value={totalRevenue > 0 ? fmt(totalRevenue) : totalPending > 0 ? fmt(totalPending) + ' pending' : '$0'} accent={totalRevenue > 0} />
       </div>
 
       <QuickActions />
+      <RecentActivity limit={5} />
 
       <div className="dash-grid">
         <section className="dash-section">
@@ -151,6 +157,25 @@ export default function Dashboard() {
           {botStatus.LAST_MSG_PROCESSED && (
             <p className="bot-last-msg">Last activity: {botStatus.LAST_MSG_PROCESSED}</p>
           )}
+
+          <div className="dash-section-header" style={{ marginTop: '1.5rem' }}>
+            <h2 className="dash-section-title">Revenue</h2>
+            <Link to="/invoices" className="dash-section-link">All invoices <ArrowRight size={14} /></Link>
+          </div>
+          <div className="lead-counts">
+            <div className="lead-count-card lead-count-card--accent">
+              <span className="lead-count-num">{fmt(totalRevenue)}</span>
+              <span className="lead-count-label">Collected</span>
+            </div>
+            <div className="lead-count-card">
+              <span className="lead-count-num">{fmt(totalPending)}</span>
+              <span className="lead-count-label">Pending</span>
+            </div>
+            <div className="lead-count-card">
+              <span className="lead-count-num">{invoices.length}</span>
+              <span className="lead-count-label">Invoices</span>
+            </div>
+          </div>
         </section>
       </div>
     </div>

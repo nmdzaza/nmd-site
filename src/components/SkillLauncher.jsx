@@ -32,6 +32,12 @@ export default function SkillLauncher({ skill, onClose }) {
       })
       if (!res.ok) throw new Error('Launch failed')
       setStatus('launched')
+      // Log skill run (fire-and-forget)
+      fetch('/api/skill-runs/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skill: skill.slug, inputs: inputStr, status: 'LAUNCHED' }),
+      }).catch(() => {})
       setTimeout(onClose, 2000)
     } catch {
       setStatus('error')

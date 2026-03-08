@@ -19,6 +19,17 @@ const colorMap = {
   'HIGH': { bg: 'var(--red-bg)', color: 'var(--red)' },
   'MEDIUM': { bg: 'var(--yellow-bg)', color: 'var(--yellow)' },
   'LOW': { bg: 'var(--gray-bg)', color: 'var(--gray)' },
+  'PENDING': { bg: 'var(--yellow-bg)', color: 'var(--yellow)' },
+  'PAID': { bg: 'var(--green-bg)', color: 'var(--green)' },
+  'OVERDUE': { bg: 'var(--red-bg)', color: 'var(--red)' },
+  'INTERESTED': { bg: 'var(--green-bg)', color: 'var(--green)' },
+  'CLIENT': { bg: 'var(--green-bg)', color: 'var(--green)' },
+  'NOT INTERESTED': { bg: 'var(--gray-bg)', color: 'var(--gray)' },
+  'NO ANSWER': { bg: 'var(--gray-bg)', color: 'var(--gray)' },
+  'LAUNCHED': { bg: 'var(--blue-bg)', color: 'var(--blue)' },
+  'SUCCESS': { bg: 'var(--green-bg)', color: 'var(--green)' },
+  'FAILED': { bg: 'var(--red-bg)', color: 'var(--red)' },
+  'READY': { bg: 'var(--blue-bg)', color: 'var(--blue)' },
 }
 
 export default function StatusBadge({ status }) {

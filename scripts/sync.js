@@ -110,6 +110,14 @@ writeModule('botStatus', { ...botConfig, ...botState })
 // 8. Meta
 writeModule('meta', { lastSynced: new Date().toISOString() })
 
+// 9. Invoices
+const invoices = readCSV(join(HOME, 'invoices', 'invoices.csv'))
+writeModule('invoices', invoices)
+
+// 10. Skill runs
+const skillRuns = readCSV(join(HOME, 'skill-runs.csv'))
+writeModule('skillRuns', skillRuns)
+
 // Summary
 console.log(`Synced:`)
 console.log(`  deals: ${deals.length}`)
@@ -118,5 +126,7 @@ console.log(`  probate: ${probate.length}`)
 console.log(`  foreclosures: ${foreclosures.length}`)
 console.log(`  cashBuyers: ${cashBuyers.length}`)
 console.log(`  dealerships: ${dealerships.length}`)
+console.log(`  invoices: ${invoices.length}`)
+console.log(`  skillRuns: ${skillRuns.length}`)
 console.log(`  botStatus: ${Object.keys(botState).length + Object.keys(botConfig).length} keys`)
 console.log(`  → src/data/live/`)

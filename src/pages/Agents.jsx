@@ -3,6 +3,8 @@ import { Users, Send, MessageCircle, AlertCircle, Search, X, Save, Phone } from 
 import agents from '../data/live/agents.js'
 import StatCard from '../components/StatCard'
 import StatusBadge from '../components/StatusBadge'
+import AgentQuickActions from '../components/AgentQuickActions'
+import SendLeadsModal from '../components/SendLeadsModal'
 
 const STATUS_OPTIONS = ['SENT', 'REPLIED', 'INTERESTED', 'CLIENT', 'NOT INTERESTED', 'NO EMAIL', 'NO ANSWER']
 
@@ -13,6 +15,7 @@ export default function Agents() {
   const [editNotes, setEditNotes] = useState('')
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState('')
+  const [showSendLeads, setShowSendLeads] = useState(false)
 
   const sent = agents.filter((a) => a.Status === 'SENT').length
   const replied = agents.filter((a) => a.Status === 'REPLIED').length
@@ -177,6 +180,11 @@ export default function Agents() {
               </div>
             </div>
 
+            <AgentQuickActions
+              agent={selected}
+              onSendLeads={() => setShowSendLeads(true)}
+            />
+
             <div className="agent-panel-edit">
               <div className="form-group">
                 <label className="form-label">Status</label>
@@ -218,6 +226,14 @@ export default function Agents() {
             </div>
           </div>
         </div>
+      )}
+
+      {showSendLeads && selected && (
+        <SendLeadsModal
+          agent={selected}
+          onClose={() => setShowSendLeads(false)}
+          onSent={() => setShowSendLeads(false)}
+        />
       )}
     </div>
   )
