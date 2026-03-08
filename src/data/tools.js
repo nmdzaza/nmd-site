@@ -5,6 +5,8 @@ export const tools = [
   {
     name: 'Probate Hunter',
     slug: 'probate-hunter',
+    priority: 'core',
+    invokeHint: '/probate-hunter maricopa last-30-days',
     category: 'lead-generation',
     icon: '\uD83C\uDFDB\uFE0F',
     price: 500,
@@ -34,6 +36,8 @@ export const tools = [
   {
     name: 'Expired Hunter',
     slug: 'expired-hunter',
+    priority: 'core',
+    invokeHint: '/expired-hunter phoenix 85028',
     category: 'lead-generation',
     icon: '\u23F0',
     price: 500,
@@ -63,6 +67,8 @@ export const tools = [
   {
     name: 'FSBO Finder',
     slug: 'fsbo-finder',
+    priority: 'core',
+    invokeHint: '/fsbo-finder phoenix-metro',
     category: 'lead-generation',
     icon: '\uD83C\uDFE0',
     price: 500,
@@ -92,6 +98,8 @@ export const tools = [
   {
     name: 'Absentee Owner Finder',
     slug: 'absentee-owner-finder',
+    priority: 'supporting',
+    invokeHint: '/absentee-owner-finder maricopa',
     category: 'lead-generation',
     icon: '\uD83D\uDCE6',
     price: 500,
@@ -121,6 +129,8 @@ export const tools = [
   {
     name: 'Divorce Lead Finder',
     slug: 'divorce-lead-finder',
+    priority: 'supporting',
+    invokeHint: '/divorce-lead-finder maricopa last-60-days',
     category: 'lead-generation',
     icon: '\uD83D\uDC94',
     price: 500,
@@ -150,6 +160,8 @@ export const tools = [
   {
     name: 'Vacant Property Scout',
     slug: 'vacant-property-scout',
+    priority: 'supporting',
+    invokeHint: '/vacant-property-scout 85028',
     category: 'lead-generation',
     icon: '\uD83C\uDFDA\uFE0F',
     price: 500,
@@ -179,6 +191,8 @@ export const tools = [
   {
     name: 'Heir Property Finder',
     slug: 'heir-property-finder',
+    priority: 'supporting',
+    invokeHint: '/heir-property-finder maricopa',
     category: 'lead-generation',
     icon: '\uD83D\uDCDC',
     price: 500,
@@ -208,6 +222,8 @@ export const tools = [
   {
     name: 'Tax Delinquent Finder',
     slug: 'tax-delinquent-finder',
+    priority: 'core',
+    invokeHint: '/tax-delinquent-finder maricopa min-2-years',
     category: 'lead-generation',
     icon: '\uD83D\uDCB8',
     price: 500,
@@ -237,6 +253,8 @@ export const tools = [
   {
     name: 'HOA Lien Hunter',
     slug: 'hoa-lien-hunter',
+    priority: 'supporting',
+    invokeHint: '/hoa-lien-hunter phoenix-metro',
     category: 'lead-generation',
     icon: '\uD83C\uDFD8\uFE0F',
     price: 500,
@@ -266,6 +284,8 @@ export const tools = [
   {
     name: 'Landlord Burnout Finder',
     slug: 'landlord-burnout-finder',
+    priority: 'supporting',
+    invokeHint: '/landlord-burnout-finder maricopa 3+-units',
     category: 'lead-generation',
     icon: '\uD83D\uDE29',
     price: 500,
@@ -295,6 +315,8 @@ export const tools = [
   {
     name: 'Price Drop Alert',
     slug: 'price-drop-alert',
+    priority: 'supporting',
+    invokeHint: '/price-drop-alert 85028 last-14-days',
     category: 'lead-generation',
     icon: '\uD83D\uDCC9',
     price: 500,
@@ -324,6 +346,8 @@ export const tools = [
   {
     name: 'Foreclosure Tracker',
     slug: 'foreclosure-tracker',
+    priority: 'core',
+    invokeHint: '/foreclosure-tracker maricopa next-30-days',
     category: 'lead-generation',
     icon: '\uD83C\uDFE6',
     price: 500,
@@ -358,6 +382,8 @@ export const tools = [
   {
     name: 'Listing Generator',
     slug: 'listing-generator',
+    priority: 'core',
+    invokeHint: '/listing-generator [address]',
     category: 'agent-productivity',
     icon: '\uD83D\uDCDD',
     price: 500,
@@ -387,6 +413,8 @@ export const tools = [
   {
     name: 'Market Report',
     slug: 'market-report',
+    priority: 'core',
+    invokeHint: '/market-report 85028',
     category: 'agent-productivity',
     icon: '\uD83D\uDCC8',
     price: 500,
@@ -415,6 +443,8 @@ export const tools = [
   {
     name: 'Listing Spy',
     slug: 'listing-spy',
+    priority: 'supporting',
+    invokeHint: '/listing-spy [agent-name] [zip]',
     category: 'agent-productivity',
     icon: '\uD83D\uDD0D',
     price: 500,
@@ -443,6 +473,8 @@ export const tools = [
   {
     name: 'Buyer Matcher',
     slug: 'buyer-matcher',
+    priority: 'supporting',
+    invokeHint: '/buyer-matcher [buyer-criteria]',
     category: 'agent-productivity',
     icon: '\uD83E\uDD1D',
     price: 500,
@@ -471,6 +503,8 @@ export const tools = [
   {
     name: 'Neighborhood Alert',
     slug: 'neighborhood-alert',
+    priority: 'supporting',
+    invokeHint: '/neighborhood-alert 85028',
     category: 'agent-productivity',
     icon: '\uD83D\uDCE2',
     price: 500,
@@ -499,6 +533,8 @@ export const tools = [
   {
     name: 'Sphere Nurture',
     slug: 'sphere-nurture',
+    priority: 'supporting',
+    invokeHint: '/sphere-nurture [contact-name]',
     category: 'agent-productivity',
     icon: '\uD83D\uDC8C',
     price: 500,
@@ -526,6 +562,8 @@ export const tools = [
   {
     name: 'Review Harvester',
     slug: 'review-harvester',
+    priority: 'advanced',
+    invokeHint: '/review-harvester [client-name] [platform]',
     category: 'agent-productivity',
     icon: '\u2B50',
     price: 500,
@@ -553,6 +591,8 @@ export const tools = [
   {
     name: 'Market Pulse',
     slug: 'market-pulse',
+    priority: 'advanced',
+    invokeHint: '/market-pulse phoenix',
     category: 'agent-productivity',
     icon: '\uD83D\uDC93',
     price: 500,
@@ -585,6 +625,8 @@ export const tools = [
   {
     name: 'Auto-Responder',
     slug: 'auto-responder',
+    priority: 'core',
+    invokeHint: '/auto-responder [lead-type] [channel]',
     category: 'automation-ai',
     icon: '\u2709\uFE0F',
     price: 500,
@@ -612,6 +654,8 @@ export const tools = [
   {
     name: 'Email Campaign Engine',
     slug: 'email-campaign-engine',
+    priority: 'core',
+    invokeHint: '/email-campaign-engine [campaign-type]',
     category: 'automation-ai',
     icon: '\uD83D\uDCE7',
     price: 500,
@@ -640,6 +684,8 @@ export const tools = [
   {
     name: 'Content Repurposer',
     slug: 'content-repurposer',
+    priority: 'supporting',
+    invokeHint: '/content-repurposer [content-url]',
     category: 'automation-ai',
     icon: '\u267B\uFE0F',
     price: 500,
@@ -666,6 +712,8 @@ export const tools = [
   {
     name: 'Chatbot Builder',
     slug: 'chatbot-builder',
+    priority: 'supporting',
+    invokeHint: '/chatbot-builder [topic]',
     category: 'automation-ai',
     icon: '\uD83D\uDCAC',
     price: 500,
@@ -693,6 +741,8 @@ export const tools = [
   {
     name: 'Social Proof Engine',
     slug: 'social-proof-engine',
+    priority: 'advanced',
+    invokeHint: '/social-proof-engine [platform]',
     category: 'automation-ai',
     icon: '\uD83C\uDFC6',
     price: 500,
@@ -720,6 +770,8 @@ export const tools = [
   {
     name: 'SEO Local Dominator',
     slug: 'seo-local-dominator',
+    priority: 'supporting',
+    invokeHint: '/seo-local-dominator [neighborhood]',
     category: 'automation-ai',
     icon: '\uD83D\uDD1D',
     price: 500,
@@ -751,6 +803,8 @@ export const tools = [
   {
     name: 'ROI Calculator',
     slug: 'roi-calculator',
+    priority: 'core',
+    invokeHint: '/roi-calculator [address] [purchase-price]',
     category: 'deal-analysis',
     icon: '\uD83E\uDDEE',
     price: 500,
@@ -780,6 +834,8 @@ export const tools = [
   {
     name: 'Rent vs. Buy',
     slug: 'rent-vs-buy',
+    priority: 'supporting',
+    invokeHint: '/rent-vs-buy [address] [rent] [price]',
     category: 'deal-analysis',
     icon: '\u2696\uFE0F',
     price: 500,
@@ -808,6 +864,8 @@ export const tools = [
   {
     name: 'Flip Profit Analyzer',
     slug: 'flip-profit-analyzer',
+    priority: 'supporting',
+    invokeHint: '/flip-profit-analyzer [address] [arv] [repairs]',
     category: 'deal-analysis',
     icon: '\uD83D\uDD28',
     price: 500,
@@ -841,6 +899,8 @@ export const tools = [
   {
     name: 'Fair Housing Checker',
     slug: 'fair-housing-checker',
+    priority: 'advanced',
+    invokeHint: '/fair-housing-checker [text-to-check]',
     category: 'compliance',
     icon: '\uD83C\uDFE0',
     price: 500,
@@ -869,6 +929,8 @@ export const tools = [
   {
     name: 'Contract Reviewer',
     slug: 'contract-reviewer',
+    priority: 'advanced',
+    invokeHint: '/contract-reviewer [contract-file]',
     category: 'compliance',
     icon: '\uD83D\uDCCB',
     price: 500,
@@ -897,6 +959,8 @@ export const tools = [
   {
     name: 'Transaction Coordinator',
     slug: 'transaction-coordinator',
+    priority: 'advanced',
+    invokeHint: '/transaction-coordinator [deal-address]',
     category: 'compliance',
     icon: '\uD83D\uDCC5',
     price: 500,
@@ -929,6 +993,8 @@ export const tools = [
   {
     name: 'Invoice Generator',
     slug: 'invoice-generator',
+    priority: 'core',
+    invokeHint: '/invoice-generator [client] [amount]',
     category: 'business-ops',
     icon: '\uD83D\uDCB5',
     price: 500,
@@ -957,6 +1023,8 @@ export const tools = [
   {
     name: 'Territory Lock',
     slug: 'territory-lock',
+    priority: 'supporting',
+    invokeHint: '/territory-lock [zip] [agent-name]',
     category: 'business-ops',
     icon: '\uD83D\uDDFA\uFE0F',
     price: 500,
@@ -985,6 +1053,8 @@ export const tools = [
   {
     name: 'Realtor CRM',
     slug: 'realtor-crm',
+    priority: 'core',
+    invokeHint: '/realtor-crm [action] [client-name]',
     category: 'business-ops',
     icon: '\uD83D\uDCDA',
     price: 500,
@@ -1013,6 +1083,8 @@ export const tools = [
   {
     name: 'Payment Tracker',
     slug: 'payment-tracker',
+    priority: 'supporting',
+    invokeHint: '/payment-tracker [action]',
     category: 'business-ops',
     icon: '\uD83D\uDCB3',
     price: 500,
@@ -1040,6 +1112,8 @@ export const tools = [
   {
     name: 'White-Label Portal',
     slug: 'white-label-portal',
+    priority: 'advanced',
+    invokeHint: '/white-label-portal [command]',
     category: 'business-ops',
     icon: '\uD83C\uDFF7\uFE0F',
     price: 500,
@@ -1072,6 +1146,8 @@ export const tools = [
   {
     name: 'Referral Network Builder',
     slug: 'referral-network-builder',
+    priority: 'supporting',
+    invokeHint: '/referral-network-builder [contact]',
     category: 'growth-sales',
     icon: '\uD83E\uDD1D',
     price: 500,
@@ -1099,6 +1175,8 @@ export const tools = [
   {
     name: 'Realtor Onboarding',
     slug: 'realtor-onboarding',
+    priority: 'advanced',
+    invokeHint: '/realtor-onboarding [agent-name]',
     category: 'growth-sales',
     icon: '\uD83C\uDF1F',
     price: 500,
@@ -1127,6 +1205,8 @@ export const tools = [
   {
     name: 'Upsell Engine',
     slug: 'upsell-engine',
+    priority: 'supporting',
+    invokeHint: '/upsell-engine [client-name]',
     category: 'growth-sales',
     icon: '\uD83D\uDCC8',
     price: 500,
@@ -1154,6 +1234,8 @@ export const tools = [
   {
     name: 'FB Lead Scraper',
     slug: 'fb-lead-scraper',
+    priority: 'core',
+    invokeHint: '/fb-lead-scraper [group-url]',
     category: 'growth-sales',
     icon: '\uD83D\uDCF1',
     price: 500,
@@ -1182,6 +1264,8 @@ export const tools = [
   {
     name: 'Insurance Lead Finder',
     slug: 'insurance-lead-finder',
+    priority: 'supporting',
+    invokeHint: '/insurance-lead-finder [zip]',
     category: 'growth-sales',
     icon: '\uD83D\uDEE1\uFE0F',
     price: 500,
@@ -1209,6 +1293,8 @@ export const tools = [
   {
     name: 'Contractor Lead Gen',
     slug: 'contractor-lead-gen',
+    priority: 'supporting',
+    invokeHint: '/contractor-lead-gen [zip]',
     category: 'growth-sales',
     icon: '\uD83D\uDD27',
     price: 500,
@@ -1236,6 +1322,8 @@ export const tools = [
   {
     name: 'Attorney Lead Gen',
     slug: 'attorney-lead-gen',
+    priority: 'supporting',
+    invokeHint: '/attorney-lead-gen [zip] [specialty]',
     category: 'growth-sales',
     icon: '\u2696\uFE0F',
     price: 500,

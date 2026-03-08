@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { tools } from '../data/tools'
 import { categories } from '../data/categories'
@@ -6,12 +7,19 @@ import Breadcrumb from '../components/Breadcrumb'
 export default function ToolDetail() {
   const { slug } = useParams()
   const tool = tools.find((t) => t.slug === slug)
+  const [copied, setCopied] = useState(false)
 
   if (!tool) {
     return <div className="not-found">Tool not found.</div>
   }
 
   const category = categories.find((c) => c.slug === tool.category)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(tool.invokeHint || '')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <div className="tool-detail">
@@ -33,10 +41,24 @@ export default function ToolDetail() {
             <span className="tag tag--category" style={{ '--cat-color': category?.color || '#e63329' }}>
               {category?.name}
             </span>
-            <span className="tag tag--price">${tool.price}</span>
+            {tool.priority && (
+              <span className={`tag tag--priority tag--priority-${tool.priority}`}>
+                {tool.priority.toUpperCase()}
+              </span>
+            )}
           </div>
         </div>
       </div>
+
+      {tool.invokeHint && (
+        <div className="invoke-strip">
+          <span className="invoke-label">Claude CLI</span>
+          <code className="invoke-command">{tool.invokeHint}</code>
+          <button className={`invoke-copy ${copied ? 'invoke-copy--copied' : ''}`} onClick={handleCopy}>
+            {copied ? 'Copied' : 'Copy'}
+          </button>
+        </div>
+      )}
 
       <div className="tool-detail-grid">
         <section className="tool-detail-section">
@@ -77,9 +99,9 @@ export default function ToolDetail() {
         <Link to={`/category/${tool.category}`} className="btn btn--secondary">
           {'\u2190'} Back to {category?.name}
         </Link>
-        <Link to="/pricing" className="btn btn--primary">
-          View Pricing {'\u2192'}
-        </Link>
+        <button className="btn btn--primary" onClick={handleCopy}>
+          {copied ? 'Copied!' : 'Copy Command'} {'\uD83D\uDCCB'}
+        </button>
       </div>
     </div>
   )

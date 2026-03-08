@@ -14,7 +14,7 @@ export default function Sidebar({ isOpen, onClose }) {
           <span>Dashboard</span>
         </NavLink>
 
-        <div className="sidebar-section-label">Categories</div>
+        <div className="sidebar-section-label">Tools</div>
         {categories.map((cat) => (
           <NavLink
             key={cat.slug}
@@ -30,9 +30,11 @@ export default function Sidebar({ isOpen, onClose }) {
 
         <div className="sidebar-divider" />
 
-        <NavLink to="/pricing" className="sidebar-link" onClick={onClose}>
-          <span className="sidebar-icon">{'\uD83D\uDCB0'}</span>
-          <span>Pricing</span>
+        <div className="sidebar-section-label">Business</div>
+
+        <NavLink to="/metrics" className="sidebar-link" onClick={onClose}>
+          <span className="sidebar-icon">{'\uD83D\uDCC8'}</span>
+          <span>Metrics</span>
         </NavLink>
 
         <NavLink to="/coming-soon" className="sidebar-link" onClick={onClose}>
@@ -43,8 +45,8 @@ export default function Sidebar({ isOpen, onClose }) {
       </nav>
 
       <div className="sidebar-footer">
-        <div className="sidebar-footer-text">NMD Solutions v1.0</div>
-        <div className="sidebar-footer-text sidebar-footer-muted">42 tools. One platform.</div>
+        <div className="sidebar-footer-text">NMD Solutions</div>
+        <div className="sidebar-footer-text sidebar-footer-muted">Phoenix, AZ — Real Estate AI</div>
       </div>
     </aside>
   )

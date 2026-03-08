@@ -13,7 +13,7 @@ export default function ComingSoon() {
       <div className="coming-soon-hero">
         <h1 className="coming-soon-title">Coming Soon</h1>
         <p className="coming-soon-subtitle">
-          We're building the next wave of tools. Full Suite members get every new tool free when it launches.
+          These tools are being built and will integrate directly into the NMD Solutions skill library.
         </p>
       </div>
 
@@ -32,9 +32,9 @@ export default function ComingSoon() {
       </div>
 
       <section className="coming-soon-cta">
-        <h2>Don't Miss Out</h2>
-        <p>Full Suite members ($3,000) get every new tool added to their account free — as soon as it launches.</p>
-        <Link to="/pricing" className="btn btn--primary">View Pricing {'\u2192'}</Link>
+        <h2>In Development</h2>
+        <p>New tools ship as Claude CLI skills — ready to use the moment they launch.</p>
+        <Link to="/" className="btn btn--secondary">{'\u2190'} Back to Dashboard</Link>
       </section>
     </div>
   )

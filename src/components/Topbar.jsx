@@ -6,8 +6,8 @@ export default function Topbar({ onMenuClick, searchQuery, onSearchChange }) {
       </button>
 
       <div className="topbar-welcome">
-        <span className="topbar-greeting">Welcome back</span>
-        <span className="topbar-territory">Your Territory: Phoenix, AZ</span>
+        <span className="topbar-greeting">Cameron Johnson</span>
+        <span className="topbar-territory">Maricopa County | Phoenix Metro</span>
       </div>
 
       <div className="topbar-search">

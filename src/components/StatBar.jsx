@@ -1,25 +1,23 @@
-import { tools } from '../data/tools'
-import { categories } from '../data/categories'
-import { comingSoon } from '../data/comingSoon'
+import { metrics } from '../data/metrics'
 
 export default function StatBar() {
   return (
     <div className="stat-bar">
       <div className="stat-item">
-        <span className="stat-number">{tools.length}</span>
-        <span className="stat-label">Active Tools</span>
+        <span className="stat-number">{metrics.leadsDelivered}</span>
+        <span className="stat-label">Leads Delivered</span>
       </div>
       <div className="stat-item">
-        <span className="stat-number">{categories.length}</span>
-        <span className="stat-label">Categories</span>
+        <span className="stat-number">{metrics.activeClients}</span>
+        <span className="stat-label">Active Clients</span>
       </div>
       <div className="stat-item">
-        <span className="stat-number">{tools.filter(t => t.category === 'lead-generation').length}</span>
-        <span className="stat-label">Lead Types</span>
+        <span className="stat-number">{metrics.closedDeals}</span>
+        <span className="stat-label">Closed Deals</span>
       </div>
       <div className="stat-item">
-        <span className="stat-number">{comingSoon.length}</span>
-        <span className="stat-label">Coming Soon</span>
+        <span className="stat-number stat-number--accent">{metrics.avgLeadScore}</span>
+        <span className="stat-label">Avg Lead Score</span>
       </div>
     </div>
   )

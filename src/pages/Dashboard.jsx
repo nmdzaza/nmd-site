@@ -1,28 +1,75 @@
 import { Link } from 'react-router-dom'
 import { categories } from '../data/categories'
+import { tools } from '../data/tools'
+import { pinnedSlugs } from '../data/pinned'
 import CategoryCard from '../components/CategoryCard'
 import StatBar from '../components/StatBar'
 import useReveal from '../hooks/useReveal'
 
 export default function Dashboard() {
+  const featuredRef = useReveal()
   const gridRef = useReveal()
-  const ctaRef = useReveal()
+  const pinnedRef = useReveal()
+
+  const featured = categories.filter((c) => c.featured)
+  const rest = categories.filter((c) => !c.featured)
+  const pinnedTools = pinnedSlugs
+    .map((slug) => tools.find((t) => t.slug === slug))
+    .filter(Boolean)
 
   return (
     <div className="dashboard">
       <div className="dashboard-hero">
-        <h1 className="dashboard-title">Your Command Center</h1>
+        <div className="dashboard-hero-eyebrow">NMD Solutions — Phoenix Metro</div>
+        <h1 className="dashboard-title">Command Center</h1>
         <p className="dashboard-subtitle">
-          42 AI-powered tools to dominate your real estate market. Pick a category to get started.
+          {tools.length} active tools across {categories.length} categories. Maricopa County.
         </p>
       </div>
 
       <StatBar />
 
+      <section className="dashboard-featured reveal-stagger" ref={featuredRef}>
+        <h2 className="section-title">Primary Toolkits</h2>
+        <div className="featured-row">
+          {featured.map((cat) => (
+            <Link
+              key={cat.slug}
+              to={`/category/${cat.slug}`}
+              className="featured-category-card"
+              style={{ '--cat-color': cat.color }}
+            >
+              <div className="featured-category-top">
+                <span className="featured-category-icon">{cat.icon}</span>
+                <span className="featured-category-count">{cat.toolCount} tools</span>
+              </div>
+              <h3 className="featured-category-name">{cat.name}</h3>
+              <p className="featured-category-desc">{cat.description}</p>
+              {cat.why && <p className="featured-category-why">{cat.why}</p>}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="pinned-tools reveal-stagger" ref={pinnedRef}>
+        <h2 className="section-title">Quick Access</h2>
+        <div className="pinned-strip">
+          {pinnedTools.map((tool) => (
+            <Link key={tool.slug} to={`/tool/${tool.slug}`} className="pinned-tool-card">
+              <span className="pinned-tool-icon">{tool.icon}</span>
+              <div className="pinned-tool-info">
+                <span className="pinned-tool-name">{tool.name}</span>
+                <span className="pinned-tool-invoke">{tool.invokeHint}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="dashboard-categories">
-        <h2 className="section-title">Tool Categories</h2>
+        <h2 className="section-title">All Categories</h2>
         <div className="category-grid reveal-stagger" ref={gridRef}>
-          {categories.map((cat) => (
+          {rest.map((cat) => (
             <CategoryCard key={cat.slug} category={cat} />
           ))}
           <Link to="/coming-soon" className="category-card category-card--coming-soon" style={{ '--cat-color': '#f5a623' }}>
@@ -34,14 +81,6 @@ export default function Dashboard() {
               <span className="category-card-arrow">{'\u2192'}</span>
             </div>
           </Link>
-        </div>
-      </section>
-
-      <section className="dashboard-cta reveal" ref={ctaRef}>
-        <div className="cta-box">
-          <h2 className="cta-title">Get the Full Suite</h2>
-          <p className="cta-text">All 42+ tools, unlimited use, territory included. One price, no recurring fees.</p>
-          <Link to="/pricing" className="cta-button">View Pricing {'\u2192'}</Link>
         </div>
       </section>
     </div>

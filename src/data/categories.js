@@ -6,6 +6,9 @@ export const categories = [
     color: '#e63329',
     description: 'Find motivated sellers before anyone else. Probate, expired, FSBO, absentee owners, and more.',
     toolCount: 12,
+    featured: true,
+    lastUpdated: 'March 2026',
+    why: 'Your #1 toolkit. Run Probate Hunter, Foreclosure Tracker, and Tax Delinquent Finder daily for consistent pipeline.',
   },
   {
     name: 'Agent Productivity',
@@ -14,6 +17,9 @@ export const categories = [
     color: '#f5a623',
     description: 'Work smarter, not harder. Listing packages, market reports, competitor monitoring, and client management.',
     toolCount: 8,
+    featured: true,
+    lastUpdated: 'March 2026',
+    why: 'Save hours per listing. Auto-generate listing packages, market reports, and competitive intel in seconds.',
   },
   {
     name: 'Automation & AI',
@@ -22,6 +28,7 @@ export const categories = [
     color: '#8b5cf6',
     description: 'Put your marketing on autopilot. Auto-responses, drip campaigns, content creation, and SEO.',
     toolCount: 6,
+    lastUpdated: 'February 2026',
   },
   {
     name: 'Deal Analysis',
@@ -30,6 +37,7 @@ export const categories = [
     color: '#22c55e',
     description: 'Run the numbers before you commit. ROI calculators, rent vs. buy tools, and flip profit analysis.',
     toolCount: 3,
+    lastUpdated: 'January 2026',
   },
   {
     name: 'Compliance',
@@ -38,6 +46,7 @@ export const categories = [
     color: '#06b6d4',
     description: 'Stay legal, stay protected. Fair housing checks, contract reviews, and transaction coordination.',
     toolCount: 3,
+    lastUpdated: 'January 2026',
   },
   {
     name: 'Business Ops',
@@ -46,6 +55,7 @@ export const categories = [
     color: '#ec4899',
     description: 'Run your business like a business. Invoicing, CRM, payments, territories, and white-label portal.',
     toolCount: 5,
+    lastUpdated: 'February 2026',
   },
   {
     name: 'Growth & Sales',
@@ -54,5 +64,6 @@ export const categories = [
     color: '#f97316',
     description: 'Scale your revenue. Referral networks, onboarding, upsells, and cross-industry lead gen.',
     toolCount: 7,
+    lastUpdated: 'March 2026',
   },
 ];
