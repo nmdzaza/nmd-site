@@ -8,6 +8,7 @@ import cashBuyers from '../data/live/cashBuyers.js'
 import botStatus from '../data/live/botStatus.js'
 import StatCard from '../components/StatCard'
 import StatusBadge from '../components/StatusBadge'
+import QuickActions from '../components/QuickActions'
 
 function fmt(n) {
   if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M'
@@ -57,6 +58,8 @@ export default function Dashboard() {
         <StatCard icon={Target} label="Active Deals" value={deals.length} />
         <StatCard icon={Users} label="Agents Contacted" value={sent + replied} />
       </div>
+
+      <QuickActions />
 
       <div className="dash-grid">
         <section className="dash-section">

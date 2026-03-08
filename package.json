@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "sync": "node scripts/sync.js",
-    "dev": "node scripts/sync.js && vite",
+    "dev": "concurrently \"node server.js\" \"node scripts/sync.js && vite\"",
     "build": "node scripts/sync.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "concurrently": "^9.2.1",
+    "express": "^5.2.1",
     "lucide-react": "^0.577.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

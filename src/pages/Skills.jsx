@@ -1,9 +1,17 @@
-import { Target, Zap, Bot, BarChart3, Shield, Building2, TrendingUp } from 'lucide-react'
+import { useState } from 'react'
+import { Target, Zap, Bot, BarChart3, Shield, Building2, TrendingUp, Terminal } from 'lucide-react'
 import { skills, skillCategories } from '../data/skills'
+import SkillLauncher from '../components/SkillLauncher'
 
 const iconMap = { Target, Zap, Bot, BarChart3, Shield, Building2, TrendingUp }
 
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 export default function Skills() {
+  const [activeSkill, setActiveSkill] = useState(null)
+
   return (
     <div className="page">
       <div className="page-header">
@@ -24,7 +32,20 @@ export default function Skills() {
             <div className="skill-grid">
               {catSkills.map((skill) => (
                 <div key={skill.name} className="skill-card">
-                  <h3 className="skill-card-name">{skill.name}</h3>
+                  <div className="skill-card-top">
+                    <h3 className="skill-card-name">{skill.name}</h3>
+                    <button
+                      className="skill-launch-btn"
+                      onClick={() => setActiveSkill({
+                        slug: slugify(skill.name),
+                        name: skill.name,
+                        description: skill.description,
+                      })}
+                    >
+                      <Terminal size={14} />
+                      Launch
+                    </button>
+                  </div>
                   <p className="skill-card-desc">{skill.description}</p>
                 </div>
               ))}
@@ -32,6 +53,13 @@ export default function Skills() {
           </section>
         )
       })}
+
+      {activeSkill && (
+        <SkillLauncher
+          skill={activeSkill}
+          onClose={() => setActiveSkill(null)}
+        />
+      )}
     </div>
   )
 }
