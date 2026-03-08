@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Dashboard from './pages/Dashboard'
-import CategoryPage from './pages/CategoryPage'
-import ToolDetail from './pages/ToolDetail'
-import ComingSoon from './pages/ComingSoon'
-import Metrics from './pages/Metrics'
+import Pipeline from './pages/Pipeline'
+import Leads from './pages/Leads'
+import Agents from './pages/Agents'
+import Skills from './pages/Skills'
 import './App.css'
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/category/:slug" element={<CategoryPage />} />
-        <Route path="/tool/:slug" element={<ToolDetail />} />
-        <Route path="/metrics" element={<Metrics />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/pipeline" element={<Pipeline />} />
+        <Route path="/leads" element={<Leads />} />
+        <Route path="/agents" element={<Agents />} />
+        <Route path="/skills" element={<Skills />} />
       </Route>
     </Routes>
   )

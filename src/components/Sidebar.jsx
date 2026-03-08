@@ -1,52 +1,38 @@
 import { NavLink } from 'react-router-dom'
-import { categories } from '../data/categories'
+import { LayoutDashboard, GitBranch, Target, Users, Wrench } from 'lucide-react'
 
-export default function Sidebar({ isOpen, onClose }) {
+const nav = [
+  { to: '/', icon: LayoutDashboard, label: 'Dashboard', end: true },
+  { to: '/pipeline', icon: GitBranch, label: 'Pipeline' },
+  { to: '/leads', icon: Target, label: 'Leads' },
+  { to: '/agents', icon: Users, label: 'Agents' },
+  { to: '/skills', icon: Wrench, label: 'Skills' },
+]
+
+export default function Sidebar({ open, onClose }) {
   return (
-    <aside className={`sidebar ${isOpen ? 'sidebar--open' : ''}`}>
-      <div className="sidebar-logo">
-        <span className="logo-text">NMD<span className="logo-dot">.</span>Solutions</span>
+    <aside className={`sidebar${open ? ' sidebar--open' : ''}`}>
+      <div className="sidebar-brand">
+        <span className="sidebar-logo">NMD</span>
+        <span className="sidebar-brand-name">Solutions</span>
       </div>
-
       <nav className="sidebar-nav">
-        <NavLink to="/" className="sidebar-link" onClick={onClose}>
-          <span className="sidebar-icon">{'\uD83C\uDFE0'}</span>
-          <span>Dashboard</span>
-        </NavLink>
-
-        <div className="sidebar-section-label">Tools</div>
-        {categories.map((cat) => (
+        {nav.map((item) => (
           <NavLink
-            key={cat.slug}
-            to={`/category/${cat.slug}`}
+            key={item.to}
+            to={item.to}
+            end={item.end}
             className="sidebar-link"
             onClick={onClose}
           >
-            <span className="sidebar-icon">{cat.icon}</span>
-            <span>{cat.name}</span>
-            <span className="sidebar-badge">{cat.toolCount}</span>
+            <item.icon size={18} />
+            <span>{item.label}</span>
           </NavLink>
         ))}
-
-        <div className="sidebar-divider" />
-
-        <div className="sidebar-section-label">Business</div>
-
-        <NavLink to="/metrics" className="sidebar-link" onClick={onClose}>
-          <span className="sidebar-icon">{'\uD83D\uDCC8'}</span>
-          <span>Metrics</span>
-        </NavLink>
-
-        <NavLink to="/coming-soon" className="sidebar-link" onClick={onClose}>
-          <span className="sidebar-icon">{'\uD83D\uDD2E'}</span>
-          <span>Coming Soon</span>
-          <span className="sidebar-badge sidebar-badge--new">6</span>
-        </NavLink>
       </nav>
-
       <div className="sidebar-footer">
-        <div className="sidebar-footer-text">NMD Solutions</div>
-        <div className="sidebar-footer-text sidebar-footer-muted">Phoenix, AZ — Real Estate AI</div>
+        <div className="sidebar-footer-brand">NMD Solutions</div>
+        <div className="sidebar-footer-territory">Phoenix, AZ</div>
       </div>
     </aside>
   )
