@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard'
 import Pipeline from './pages/Pipeline'
 import Leads from './pages/Leads'
 import Agents from './pages/Agents'
+import Housing from './pages/Housing'
 import Skills from './pages/Skills'
 import Invoices from './pages/Invoices'
 import './App.css'
@@ -16,6 +17,7 @@ function App() {
         <Route path="/pipeline" element={<Pipeline />} />
         <Route path="/leads" element={<Leads />} />
         <Route path="/agents" element={<Agents />} />
+        <Route path="/housing" element={<Housing />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/invoices" element={<Invoices />} />
       </Route>

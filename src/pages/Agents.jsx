@@ -13,6 +13,7 @@ export default function Agents() {
   const [selected, setSelected] = useState(null)
   const [editStatus, setEditStatus] = useState('')
   const [editNotes, setEditNotes] = useState('')
+  const [editEmail, setEditEmail] = useState('')
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState('')
   const [showSendLeads, setShowSendLeads] = useState(false)
@@ -42,6 +43,7 @@ export default function Agents() {
     setSelected(agent)
     setEditStatus(agent.Status || '')
     setEditNotes(agent.Notes || '')
+    setEditEmail(agent.Email && agent.Email !== 'TBD' ? agent.Email : '')
     setSaveMsg('')
   }
 
@@ -57,6 +59,7 @@ export default function Agents() {
           hit: selected['Hit#'],
           status: editStatus,
           notes: editNotes,
+          email: editEmail,
         }),
       })
       if (!res.ok) throw new Error('Save failed')
@@ -64,6 +67,7 @@ export default function Agents() {
       // Update local data so it shows immediately
       selected.Status = editStatus
       selected.Notes = editNotes
+      selected.Email = editEmail
       setTimeout(() => setSaveMsg(''), 2000)
     } catch {
       setSaveMsg('Error — is dev server running?')
@@ -206,6 +210,16 @@ export default function Agents() {
                   onChange={(e) => setEditNotes(e.target.value)}
                   placeholder="Add notes about this agent..."
                   rows={3}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Email (paste from Craigslist / source)</label>
+                <input
+                  className="form-input"
+                  type="email"
+                  value={editEmail}
+                  onChange={(e) => setEditEmail(e.target.value)}
+                  placeholder="Paste email address here..."
                 />
               </div>
               <div className="agent-panel-actions">

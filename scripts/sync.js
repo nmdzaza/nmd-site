@@ -118,6 +118,18 @@ writeModule('invoices', invoices)
 const skillRuns = readCSV(join(HOME, 'skill-runs.csv'))
 writeModule('skillRuns', skillRuns)
 
+// 11. Housing seekers (from craigslist-fsbo housing-wanted)
+const seekers = readCSV(join(HOME, 'rental-leads', 'seekers.csv'))
+writeModule('seekers', seekers)
+
+// 12. Rental listings
+const rentalListings = readCSV(join(HOME, 'rental-leads', 'rentals.csv'))
+writeModule('rentalListings', rentalListings)
+
+// 13. Rental matches
+const rentalMatches = readCSV(join(HOME, 'rental-leads', 'matches.csv'))
+writeModule('rentalMatches', rentalMatches)
+
 // Summary
 console.log(`Synced:`)
 console.log(`  deals: ${deals.length}`)
@@ -129,4 +141,7 @@ console.log(`  dealerships: ${dealerships.length}`)
 console.log(`  invoices: ${invoices.length}`)
 console.log(`  skillRuns: ${skillRuns.length}`)
 console.log(`  botStatus: ${Object.keys(botState).length + Object.keys(botConfig).length} keys`)
+console.log(`  seekers: ${seekers.length}`)
+console.log(`  rentalListings: ${rentalListings.length}`)
+console.log(`  rentalMatches: ${rentalMatches.length}`)
 console.log(`  → src/data/live/`)

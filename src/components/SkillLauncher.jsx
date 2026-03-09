@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X, Terminal, Check } from 'lucide-react'
+import { X, Terminal, Check, Info, Gift } from 'lucide-react'
 import skillInputs from '../data/skillInputs'
 
 export default function SkillLauncher({ skill, onClose }) {
@@ -7,9 +7,7 @@ export default function SkillLauncher({ skill, onClose }) {
   const [values, setValues] = useState(() => {
     if (!inputs) return { freeform: '' }
     const init = {}
-    inputs.forEach((f) => {
-      init[f.name] = f.defaultValue || ''
-    })
+    inputs.forEach((f) => { init[f.name] = f.defaultValue || '' })
     return init
   })
   const [status, setStatus] = useState('idle') // idle | launching | launched | error
@@ -32,13 +30,12 @@ export default function SkillLauncher({ skill, onClose }) {
       })
       if (!res.ok) throw new Error('Launch failed')
       setStatus('launched')
-      // Log skill run (fire-and-forget)
       fetch('/api/skill-runs/log', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ skill: skill.slug, inputs: inputStr, status: 'LAUNCHED' }),
       }).catch(() => {})
-      setTimeout(onClose, 2000)
+      setTimeout(onClose, 2500)
     } catch {
       setStatus('error')
     }
@@ -46,19 +43,39 @@ export default function SkillLauncher({ skill, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal skill-modal" onClick={(e) => e.stopPropagation()}>
+
+        {/* Header */}
         <div className="modal-header">
           <h2 className="modal-title">{skill.name}</h2>
-          <button className="modal-close" onClick={onClose}>
-            <X size={18} />
-          </button>
+          <button className="modal-close" onClick={onClose}><X size={18} /></button>
         </div>
 
-        {skill.description && (
-          <p className="modal-desc">{skill.description}</p>
+        {/* What this does */}
+        {skill.guide && (
+          <div className="skill-guide-box">
+            <div className="skill-guide-label">
+              <Info size={14} />
+              What this does
+            </div>
+            <p className="skill-guide-text">{skill.guide}</p>
+          </div>
         )}
 
+        {/* What you'll get */}
+        {skill.youGet && (
+          <div className="skill-output-box">
+            <div className="skill-output-label">
+              <Gift size={14} />
+              What you'll get back
+            </div>
+            <p className="skill-output-text">{skill.youGet}</p>
+          </div>
+        )}
+
+        {/* Inputs */}
         <div className="modal-body">
+          <div className="skill-inputs-label">Fill in and hit Launch</div>
           {inputs ? (
             inputs.map((field) => (
               <div key={field.name} className="form-group">
@@ -80,7 +97,7 @@ export default function SkillLauncher({ skill, onClose }) {
                     value={values[field.name]}
                     onChange={(e) => set(field.name, e.target.value)}
                     placeholder={field.placeholder || ''}
-                    rows={4}
+                    rows={3}
                   />
                 ) : (
                   <input
@@ -95,27 +112,28 @@ export default function SkillLauncher({ skill, onClose }) {
             ))
           ) : (
             <div className="form-group">
-              <label className="form-label">Instructions</label>
+              <label className="form-label">Additional Instructions (optional)</label>
               <textarea
                 className="form-input form-textarea"
                 value={values.freeform}
                 onChange={(e) => set('freeform', e.target.value)}
-                placeholder="Describe what you need..."
-                rows={4}
+                placeholder="Add any specific details or leave blank to run with defaults..."
+                rows={3}
               />
             </div>
           )}
         </div>
 
+        {/* Footer */}
         <div className="modal-footer">
           {status === 'launched' ? (
             <div className="launch-success">
               <Check size={18} />
-              <span>Launched — check Terminal</span>
+              <span>Launched — check Terminal window</span>
             </div>
           ) : status === 'error' ? (
             <div className="launch-error">
-              <span>Failed to launch. Is the dev server running?</span>
+              <span>Failed to launch. Is the server running?</span>
               <button className="btn btn-primary" onClick={handleLaunch}>Retry</button>
             </div>
           ) : (
@@ -129,6 +147,7 @@ export default function SkillLauncher({ skill, onClose }) {
             </button>
           )}
         </div>
+
       </div>
     </div>
   )

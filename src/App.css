@@ -764,6 +764,67 @@
   color: var(--text-primary);
 }
 
+/* ── Skill Launcher guide & output boxes ─────────────────────── */
+.skill-modal { max-width: 560px; }
+
+.skill-guide-box {
+  margin: 0 24px;
+  background: #eef4ff;
+  border: 1px solid #c7d9f8;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.skill-guide-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #3b6fcf;
+  margin-bottom: 6px;
+}
+.skill-guide-text {
+  font-size: 0.825rem;
+  color: #2d3a52;
+  line-height: 1.55;
+  margin: 0;
+}
+.skill-output-box {
+  margin: 10px 24px 0;
+  background: #f0faf2;
+  border: 1px solid #b6e5c2;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.skill-output-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2a7a45;
+  margin-bottom: 5px;
+}
+.skill-output-text {
+  font-size: 0.8rem;
+  color: #1e4a2e;
+  line-height: 1.5;
+  margin: 0;
+}
+.skill-inputs-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 12px;
+}
+/* ───────────────────────────────────────────────────────────── */
+
 .modal-desc {
   padding: 8px 24px 0;
   font-size: 0.8125rem;
@@ -1423,4 +1484,756 @@ select.form-input {
 .invoice-status-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* ── FSBO Action Buttons ── */
+.fsbo-actions {
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+
+.fsbo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.fsbo-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fsbo-btn--call {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  color: #0369a1;
+}
+.fsbo-btn--call:hover:not(:disabled) {
+  background: #bae6fd;
+}
+
+.fsbo-btn--sms {
+  background: #dcfce7;
+  border-color: #4ade80;
+  color: #15803d;
+}
+.fsbo-btn--sms:hover:not(:disabled) {
+  background: #bbf7d0;
+}
+
+.fsbo-btn--analyze {
+  background: #f3e8ff;
+  border-color: #c084fc;
+  color: #7e22ce;
+}
+.fsbo-btn--analyze:hover:not(:disabled) {
+  background: #e9d5ff;
+}
+
+.fsbo-btn--send {
+  background: #fff7ed;
+  border-color: #fb923c;
+  color: #c2410c;
+}
+.fsbo-btn--send:hover:not(:disabled) {
+  background: #fed7aa;
+}
+
+/* ── FSBO Send Modal ── */
+.fsbo-send-modal {
+  width: 480px;
+  max-width: 95vw;
+}
+
+.fsbo-send-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fsbo-send-property {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg-secondary, #f8fafc);
+  border-radius: 8px;
+  border: 1px solid var(--card-border, #e2e8f0);
+  font-size: 0.85rem;
+}
+
+.fsbo-send-property strong {
+  flex: 1 1 100%;
+  font-size: 0.95rem;
+}
+
+.fsbo-send-price {
+  font-weight: 700;
+  color: var(--accent, #6366f1);
+}
+
+.fsbo-send-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fsbo-send-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--card-border, #e2e8f0);
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #0f172a);
+  font-size: 0.875rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.fsbo-send-error {
+  color: #dc2626;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.fsbo-send-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+/* ── Housing Page ───────────────────────────────────────── */
+.housing-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.housing-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.housing-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.housing-stat-icon--seekers  { background: #dbeafe; color: #2563eb; }
+.housing-stat-icon--rentals  { background: #dcfce7; color: #16a34a; }
+.housing-stat-icon--matches  { background: #f3e8ff; color: #9333ea; }
+.housing-stat-icon--perfect  { background: #fef9c3; color: #ca8a04; }
+
+.housing-stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.housing-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ── Housing Sections ──────────────────────────────────── */
+.housing-section {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.housing-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.housing-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.housing-section-title h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.housing-section-count {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.housing-section-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.housing-launch-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+/* ── Empty States ──────────────────────────────────────── */
+.housing-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.housing-empty p { margin: 0 0 8px; }
+
+.housing-empty-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Housing Tables ────────────────────────────────────── */
+.housing-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+}
+
+.housing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+.housing-table thead th {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--card-border);
+  white-space: nowrap;
+}
+
+.housing-table tbody tr {
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.15s;
+}
+
+.housing-table tbody tr:last-child { border-bottom: none; }
+.housing-table tbody tr:hover { background: var(--bg-secondary); }
+
+.housing-table tbody td {
+  padding: 9px 12px;
+  color: var(--text-primary);
+  vertical-align: top;
+}
+
+.housing-td-name   { font-weight: 600; white-space: nowrap; }
+.housing-td-price  { white-space: nowrap; color: var(--accent); font-weight: 600; }
+.housing-td-area   { max-width: 160px; }
+.housing-td-about  { max-width: 220px; color: var(--text-muted); font-size: 0.8rem; }
+.housing-td-reqs   { max-width: 200px; font-size: 0.8rem; color: var(--text-muted); }
+
+/* ── Phone + Post links ─────────────────────────────────── */
+.housing-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+.housing-phone-link:hover { text-decoration: underline; }
+
+.housing-no-phone { color: var(--text-muted); }
+
+.housing-post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #7c3aed;
+  text-decoration: none;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.housing-post-link:hover { text-decoration: underline; }
+
+/* ── Type Badges ───────────────────────────────────────── */
+.housing-type-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+.type-room         { background: #dbeafe; color: #1d4ed8; }
+.type-apartment    { background: #dcfce7; color: #15803d; }
+.type-house        { background: #fef9c3; color: #a16207; }
+.type-other        { background: var(--bg-secondary); color: var(--text-muted); }
+
+/* ── Match Cards ───────────────────────────────────────── */
+.match-list { display: flex; flex-direction: column; gap: 8px; }
+
+.match-card {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.match-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  flex-wrap: wrap;
+  user-select: none;
+  transition: background 0.15s;
+}
+.match-card-header:hover { background: var(--bg-secondary); }
+
+.match-names {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.match-seeker-name {
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.match-arrow { color: var(--text-muted); }
+
+.match-rental-loc {
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.match-prices {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.match-seeker-budget { color: #2563eb; font-weight: 600; }
+.match-rental-price  { color: #16a34a; font-weight: 600; }
+.match-dot { color: var(--text-muted); }
+
+.match-phones {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.match-expand-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Score Badge */
+.housing-score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.score-perfect { background: #fef9c3; color: #a16207; }
+.score-strong  { background: #dcfce7; color: #15803d; }
+.score-good    { background: #dbeafe; color: #1d4ed8; }
+.score-weak    { background: var(--bg-secondary); color: var(--text-muted); }
+
+.score-num {
+  font-size: 0.7rem;
+  opacity: 0.75;
+  font-weight: 600;
+}
+
+/* Match Card Body */
+.match-card-body {
+  border-top: 1px solid var(--card-border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.match-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .match-two-col { grid-template-columns: 1fr; }
+}
+
+.match-side {
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.83rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.match-side--seeker { background: #eff6ff; border: 1px solid #bfdbfe; }
+.match-side--rental { background: #f0fdf4; border: 1px solid #bbf7d0; }
+
+.match-side-label {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-size: 0.82rem;
+}
+
+.match-detail-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.match-detail-row > span:first-child {
+  color: var(--text-muted);
+  width: 64px;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  padding-top: 1px;
+}
+
+.match-detail-row > span:last-child {
+  color: var(--text-primary);
+  flex: 1;
+  word-break: break-word;
+}
+
+.match-tags {
+  font-size: 0.78rem;
+  color: #7c3aed;
+}
+
+/* Match reasons */
+.match-reasons {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.82rem;
+}
+
+.match-reasons-label {
+  font-weight: 700;
+  color: #15803d;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+}
+
+.match-reason-item {
+  color: var(--text-secondary);
+  padding: 2px 0;
+  padding-left: 12px;
+  position: relative;
+}
+.match-reason-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+}
+
+/* Call Scripts */
+.match-scripts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .match-scripts { grid-template-columns: 1fr; }
+}
+
+.match-script-block {
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.match-script-label {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.match-script-text {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Responsive housing stats */
+@media (max-width: 800px) {
+  .housing-stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .housing-stats-row { grid-template-columns: 1fr; }
+}
+
+/* ── Housing Action Buttons ──────────────────────────────── */
+.housing-td-actions { white-space: nowrap; }
+
+.housing-row-btns {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.housing-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.15s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.housing-action-btn--text {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+.housing-action-btn--text:hover { background: #dcfce7; }
+
+.housing-action-btn--email {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+.housing-action-btn--email:hover { background: #dbeafe; }
+.housing-action-btn--email.housing-action-btn--ready {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #86efac;
+}
+.housing-action-btn--email.housing-action-btn--ready:hover { background: #dcfce7; }
+
+.housing-action-btn--active {
+  background: #1e3a5f;
+  color: #fff;
+  border-color: #1e3a5f;
+}
+
+/* ── Match header quick actions ─────────────────────────── */
+.match-header-actions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+/* ── Match section header right side ────────────────────── */
+.housing-section-title-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Toggle (best per seeker / all) ─────────────────────── */
+.housing-toggle {
+  display: flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.housing-toggle-btn {
+  background: none;
+  border: none;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.housing-toggle-btn:hover { color: var(--text-primary); }
+.housing-toggle-btn--active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Housing CL Email column ─────────────────────────────────── */
+.housing-td-cl-email {
+  min-width: 130px;
+  max-width: 170px;
+}
+
+.housing-cl-add-btn {
+  background: none;
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.housing-cl-add-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.housing-cl-input-row {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.housing-cl-input {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  padding: 3px 6px;
+  outline: none;
+}
+.housing-cl-input::placeholder { color: var(--text-muted); }
+
+.housing-cl-save-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 7px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+}
+.housing-cl-save-btn:hover { opacity: 0.85; }
+.housing-cl-save-btn:disabled { opacity: 0.5; cursor: default; }
+
+.housing-cl-cancel-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.housing-cl-cancel-btn:hover { background: rgba(220,38,38,0.08); color: #dc2626; border-color: #dc2626; }
+
+.housing-cl-saved {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: rgba(29, 185, 84, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.25);
+  border-radius: 5px;
+  padding: 2px 7px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Clickable pill — shows pencil cursor and highlights on hover */
+.housing-cl-editable {
+  cursor: pointer;
+  user-select: none;
+}
+.housing-cl-editable:hover {
+  background: rgba(29, 185, 84, 0.2);
+  border-color: rgba(29, 185, 84, 0.5);
+  color: var(--text-primary);
 }

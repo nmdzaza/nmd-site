@@ -40,6 +40,8 @@ export default function Skills() {
                         slug: slugify(skill.name),
                         name: skill.name,
                         description: skill.description,
+                        guide: skill.guide,
+                        youGet: skill.youGet,
                       })}
                     >
                       <Terminal size={14} />
